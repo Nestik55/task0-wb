@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            text-align: center;
+            margin: 0;
+        }
+        .search-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .search-input {
+            padding: 15px;
+            width: calc(100% - 30px);
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-input:focus {
+            border-color: #4CAF50;
+        }
+        .search-button, .home-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .home-button {
+            background-color: #008CBA;
+            color: white;
+        }
+        .search-button:hover, .home-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <h2>Поиск</h2>
+    <input type="text" id="searchInput" class="search-input" placeholder="Введите uid...">
+    <br>
+    <button class="search-button" onclick="performSearch()">Поиск</button>
+</div>
+
+<script>
+function performSearch() {
+    const query = document.getElementById('searchInput').value;
+    if (query) {
+        window.location.href = `home?query=${encodeURIComponent(query)}`;
+    } else {
+        alert('Пожалуйста, введите запрос перед поиском!');
+    }
+}
+</script>
+
+</body>
+</html>
